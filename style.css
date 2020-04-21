@@ -1,0 +1,236 @@
+/*
+    Emux Website
+
+    Copyright (C) Emux Technologies. All Rights Reserved.
+
+    https://emux.app
+    Licenced by the Emux Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+:root {
+    --background: white;
+    --text: black;
+    --light: #e8eef2;
+    --lightText: black;
+    --dark: #373f51;
+    --darkText: white;
+    --red: #f75590;
+    --redText: white;
+    --green: #10ffcb;
+    --greenText: black;
+    --blue: #20a4f3;
+    --blueText: white;
+}
+
+html, body {
+    display: none;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: "Lato", sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    font-family: inherit;
+}
+
+nav {
+    height: 80px;
+    padding: 20px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    background-color: var(--light);
+    color: var(--lightText);
+}
+
+nav img {
+    height: 100%;
+}
+
+nav .navButtons {
+    height: 100%;
+    float: right;
+}
+
+[dir="rtl"] nav .navButtons {
+    float: left;
+}
+
+nav .navButtons a {
+    display: inline-block;
+    height: 100%;
+    padding: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
+    color: var(--lightText);
+    font-size: 24px;
+    text-decoration: none;
+}
+
+nav .navButtons a:last-child {
+    margin-right: 0;
+}
+
+nav .navButtons a.selected {
+    font-weight: bold;
+}
+
+main {
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+footer {
+    padding: 20px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    background-color: var(--dark);
+    color: var(--darkText);
+    clear: both;
+}
+
+section.cover {
+    min-height: 50vh;
+    margin-top: 20vh;
+}
+
+section.cover h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+section.cover p {
+    font-size: 24px;
+}
+
+section.cover img.graphic {
+    display: block;
+    width: 30vw;
+    margin-bottom: 20px;
+    float: right;
+    z-index: -1;
+}
+
+section.headline {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+section.headline h1 {
+    font-size: 32px;
+}
+
+[dir="rtl"] section.cover img.graphic {
+    float: left;
+}
+
+a {
+    color: var(--dark);
+    transition: 0.5s;
+}
+
+a:hover {
+    color: var(--blue);
+}
+
+button {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    padding: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: var(--blue);
+    color: var(--blueText);
+    font-size: 20px;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover {
+    filter: brightness(1.15);
+}
+
+button.light {
+    background-color: var(--light);
+    color: var(--lightText);
+}
+
+button.light:hover {
+    filter: brightness(0.95);
+}
+
+button.dark {
+    background-color: var(--dark);
+    color: var(--darkText);
+}
+
+button.red {
+    background-color: var(--red);
+    color: var(--redText);
+}
+
+button.green {
+    background-color: var(--green);
+    color: var(--greenText);
+}
+
+button.blue {
+    background-color: var(--blue);
+    color: var(--blueText);
+}
+
+.desktop {
+    display: unset;
+}
+
+.mobile {
+    display: none;
+}
+
+.start {
+    text-align: start;
+}
+
+.center {
+    text-align: center;
+}
+
+.end {
+    text-align: end;
+}
+
+[dir="rtl"] .flippable {
+    transform: rotateY(180deg);
+}
+
+@media (max-width: 600px) {
+    section.cover {
+        margin-top: 5vh;
+    }
+
+    section.cover h1 {
+        font-size: 40px;
+    }
+
+    section.cover img.graphic {
+        width: 50vw;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: unset;
+    }
+}
