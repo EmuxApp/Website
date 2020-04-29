@@ -1,24 +1,24 @@
 /*
-    Emux Website
-
+    Proxi
+ 
     Copyright (C) Emux Technologies. All Rights Reserved.
-
+ 
     https://emux.app
-    Licenced by the Emux Open-Source Licence, which can be found at LICENCE.md.
+    Licenced by the Emux Closed-Source Licence, which can be found at LICENCE.md.
 */
-
+ 
 var lang = {
     locales: {},
     language: "",
     log: [],
-
+ 
     languageData: {
         name: "Neutral",
         nameShort: "Neutral",
         textDirection: "ltr",
         strings: {}
     },
-
+ 
     load: function(code, data) {
         if (typeof(data) == "string") {
             lang.locales[code] = JSON.parse(data);
@@ -26,7 +26,7 @@ var lang = {
             lang.locales[code] = data;
         }
     },
-
+ 
     use: function(code) {
         if (code in lang.locales) {
             lang.language = code;
@@ -39,19 +39,19 @@ var lang = {
             }
         }
     },
-
+ 
     getLocale: function() {
         if (core.getURLParameter("lang") != null) {
             localStorage.setItem("lang", core.getURLParameter("lang"));
         }
-
+ 
         if (localStorage.getItem("lang") != null) {
             return localStorage.getItem("lang");
         } else {
             return navigator.language;
         }
     },
-
+ 
     addToLog: function(data, result, success = true, date = new Date()) {
         lang.log.push({
             data: data,
@@ -60,7 +60,7 @@ var lang = {
             date: date
         });
     },
-
+ 
     format: function(data, code, options = {}) {
         if (data instanceof Number) {
             return data.toLocaleString(code, options);
@@ -70,28 +70,28 @@ var lang = {
             return data;
         }
     },
-
+ 
     translate: function(string, arguments = {}, useLocaleFormats = true) {
         if (typeof(arguments) != "object") {
             arguments = [arguments];
         }
-
+ 
         if (lang.languageData.strings[string] != undefined) {
             var foundTranslation = null;
-
+ 
             if (typeof(lang.languageData.strings[string]) == "object") {
                 var rules = lang.languageData.strings[string];
-
+ 
                 for (var rule in rules) {
                     var originalRule = rule;
-
+ 
                     for (var argument in arguments) {
                         if (useLocaleFormats) {
                             rule = rule.replace(new RegExp("\\{" + argument + "\\}", "g"), "`" + String(lang.format(arguments, lang.language)).replace(/`/g, "\\`") + "`");
                         } else {
                             rule = rule.replace(new RegExp("\\{" + argument + "\\}", "g"), "`" + String(arguments).replace(/`/g, "\\`") + "`");
                         }
-
+ 
                         if (eval(rule)) {
                             foundTranslation = rules[originalRule];
                         }
@@ -100,32 +100,32 @@ var lang = {
             } else {
                 foundTranslation = lang.languageData.strings[string];
             }
-
+ 
             if (foundTranslation != null) {
                 for (var i = 0; i < 1000; i++) {
                     foundTranslation = foundTranslation.replace(new RegExp("\\{" + i + "\\}", "g"), arguments[i]);
                 }
-                
+                 
                 lang.addToLog(string, foundTranslation);
-
+ 
                 return foundTranslation;
             } else {
                 lang.addToLog(string, null, false);
-
+ 
                 throw "Could not translate string \"" + string + "\"";
             }
         } else {
             lang.addToLog(string, null, false);
-
+ 
             return string;
         }
     }
 };
-
+ 
 function _() {
     return lang.translate(arguments);
 }
-
+ 
 $(function() {
     setInterval(function() {
         $("*:not(script, style, meta, link, .noTranslate)").each(function() {
@@ -141,9 +141,9 @@ $(function() {
                     ));
                 }
             }
-
+ 
             var thisParent = this;
-
+ 
             $.each(this.attributes, function(index, element) {
                 if ($(thisParent).attr(element.name)[0] == "@") {
                     if ($(thisParent).attr(element.name).substring(1).split("|").length == 2) {
@@ -160,19 +160,19 @@ $(function() {
             });
         });
     }, 10);
-
+ 
     lang.use(lang.getLocale());
-
+ 
     setTimeout(function() {
         $("html").attr("dir", lang.languageData.textDirection);
         $("html, body").css("display", "unset");
     });
 });
-
+ 
 function _() {
     return lang.translate(...arguments);
 }
-
+ 
 if (core.getURLParameter("lang") != null) {
     lang.language = core.getURLParameter("lang");
 } else {
@@ -182,9 +182,9 @@ if (core.getURLParameter("lang") != null) {
         lang.language = navigator.language;
     }
 }
- 
+  
 if ((lang.language == "en-AU" || lang.language == "en-US") && lang.locales[lang.language] == undefined) {
     lang.language = "en-GB";
 }
-
+ 
 $("html, body").css("display", "none");
