@@ -96,6 +96,12 @@ main {
     padding-right: 10vw;
 }
 
+iframe.main {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    border: none;
+}
+
 footer {
     padding: 20px;
     padding-left: 10vw;
