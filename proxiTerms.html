@@ -21,6 +21,7 @@
         <script src="/core.js"></script>
         <script src="/lang.js"></script>
         <script src="/lang/en_GB.js"></script>
+        <script src="/script.js"></script>
     </head>
     <body>
         <nav>
@@ -29,14 +30,20 @@
                 <img src="/media/emuxText.svg" alt="@Emux logo" class="desktop" />
             </a>
             <div class="navButtons">
-                <a href="/index.html">Home</a>
-                <a href="/about.html">About</a>
+                <a href="/">@Home</a>
+                <a href="/about.html">@About</a>
+                <a href="/products.html">@Products</a>
+            </div>
+            <div class="navMobile">
+                <a href="javascript:toggleMenu();"><icon aria-label="@Menu">menu</icon></a>
+            </div>
+            <div class="navMenu">
+                <a href="/">@Home</a>
+                <a href="/about.html">@About</a>
+                <a href="/products.html">@Products</a>
             </div>
         </nav>
         <iframe src="/embedded/proxiTerms_en_GB.html" class="main"></iframe>
-        <footer>
-            <p>@Made with &#x2764; in Norwich, United Kingdom</p>
-            <p>@Copyright &copy; Emux Technologies. All Rights Reserved.</p>
-        </footer>
+        <footer import="/templates/footer.html"></footer>
     </body>
 </html>

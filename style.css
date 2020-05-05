@@ -89,6 +89,57 @@ nav .navButtons a.selected {
     font-weight: bold;
 }
 
+nav .navMobile {
+    display: none;
+    height: 100%;
+    float: right;
+}
+
+[dir="rtl"] nav .navMobile {
+    float: left;
+}
+
+nav .navMobile a {
+    display: inline-block;
+    height: 100%;
+    padding: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
+    color: var(--lightText);
+    font-size: 24px;
+    text-decoration: none;
+}
+
+nav .navMenu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    background-color: var(--light);
+    border-top: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+nav .navMenu a {
+    display: block;
+    padding: 20px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    color: inherit;
+    font-size: 20px;
+    text-decoration: none;
+    transition: background-color 0.5s;
+}
+
+nav .navMenu a:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    color: inherit;
+}
+
+nav .navMenu a.selected {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 main {
     min-height: calc(100vh - 80px);
     padding: 20px;
@@ -109,6 +160,28 @@ footer {
     background-color: var(--dark);
     color: var(--darkText);
     clear: both;
+}
+
+footer .split {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+footer span.header {
+    display: block;
+    margin-top: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+footer a {
+    color: inherit;
+}
+
+footer a.location {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
 }
 
 section.cover {
@@ -141,6 +214,10 @@ section.headline {
 
 section.headline h1 {
     font-size: 32px;
+}
+
+section.headline p {
+    font-size: 24px;
 }
 
 [dir="rtl"] section.cover img.graphic {
@@ -266,6 +343,21 @@ li {
     margin-bottom: 5px;
 }
 
+icon {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+  }
+
 .desktop {
     display: unset;
 }
@@ -290,6 +382,44 @@ li {
     transform: rotateY(180deg);
 }
 
+.noMargin {
+    margin: 0;
+}
+
+.split {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+    flex-wrap: wrap;
+}
+
+.split > div {
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.split > div.iconic {
+    flex-grow: 0;
+    flex-basis: 100px;
+    text-align: center;
+}
+
+.split.listing {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+    nav .navButtons {
+        display: none;
+    }
+
+    nav .navMobile {
+        display: unset;
+    }
+}
+
 @media (max-width: 600px) {
     section.cover {
         margin-top: 5vh;
@@ -309,5 +439,21 @@ li {
 
     .mobile {
         display: unset;
+    }
+
+    .split > div {
+        flex-basis: 50%;
+    }
+
+    .split > div.iconic {
+        padding-left: 30vw;
+        padding-right: 30vw;
+        flex-basis: 100%;
+    }    
+}
+
+@media (max-width: 400px) {
+    .split > div {
+        flex-basis: 100%;
     }
 }
