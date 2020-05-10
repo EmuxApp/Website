@@ -267,11 +267,13 @@ section.feature.proxiPress {
 }
 
 section.feature.proxiPress div:last-child {
-    height: 40vh;
+    max-height: 40vh;
     overflow: hidden;
 }
 
 section.feature.proxiPress img {
+    position: relative;
+    top: 5px;
     width: 100%;
 }
 
