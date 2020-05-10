@@ -187,6 +187,7 @@ footer a.location {
 section.cover {
     min-height: 50vh;
     margin-top: 20vh;
+    margin-bottom: 20vh;
 }
 
 section.cover h1 {
@@ -206,6 +207,10 @@ section.cover img.graphic {
     z-index: -1;
 }
 
+[dir="rtl"] section.cover img.graphic {
+    float: left;
+}
+
 section.headline {
     margin-top: 48px;
     margin-bottom: 48px;
@@ -220,8 +225,54 @@ section.headline p {
     font-size: 24px;
 }
 
-[dir="rtl"] section.cover img.graphic {
-    float: left;
+section.feature {
+    width: 125%;
+    margin-left: -10vw;
+    margin-right: -10vw;
+    padding: 10px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+section.feature h2 {
+    font-size: 30px;
+}
+
+section.feature.proxi {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: var(--dark);
+    color: var(--darkText);
+}
+
+section.feature.proxi h2 span:first-child {
+    color: var(--green);
+}
+
+section.feature.proxi div:last-child {
+    height: 40vh;
+    overflow: hidden;
+}
+
+section.feature.proxi img {
+    width: 100%;
+    height: 40vh
+}
+
+section.feature.proxiPress {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: var(--blue);
+    color: var(--blueText);
+}
+
+section.feature.proxiPress div:last-child {
+    height: 40vh;
+    overflow: hidden;
+}
+
+section.feature.proxiPress img {
+    width: 100%;
 }
 
 a {
@@ -343,6 +394,10 @@ li {
     margin-bottom: 5px;
 }
 
+address {
+    font-style: normal;
+}
+
 icon {
     font-family: "Material Icons";
     font-weight: normal;
@@ -356,7 +411,7 @@ icon {
     direction: ltr;
     -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
-  }
+}
 
 .desktop {
     display: unset;
@@ -407,6 +462,40 @@ icon {
 }
 
 .split.listing {
+    margin-bottom: 10px;
+}
+
+.split img.photo {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.split.team {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.split.team div {
+    padding: 20px;
+}
+
+.split.team div img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.split.team div h3 {
+    margin: 0;
+}
+
+.split.team div strong {
+    display: block;
+    margin-top: 5px;
     margin-bottom: 10px;
 }
 
