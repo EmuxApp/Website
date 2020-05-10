@@ -7,7 +7,7 @@
     Licenced by the Emux Open-Source Licence, which can be found at LICENCE.md.
 */
 
-lang.load("en-GB", {
+lang.load("en_GB", {
     name: "English (United Kingdom)",
     nameShort: "English",
     textDirection: "ltr",

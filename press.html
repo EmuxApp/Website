@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+    Emux Website
+
+    Copyright (C) Emux Technologies. All Rights Reserved.
+
+    https://emux.app
+    Licenced by the Emux Open-Source Licence, which can be found at LICENCE.md.
+-->
+<html>
+    <head>
+        <title>@Press Corner - Emux Technologies</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <meta name="description" content="Making apps that drive our world forward.">
+        <link rel="shortcut icon" href="/media/emux.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+        <link rel="stylesheet" href="/style.css">
+        <script src="/lib/jquery.min.js"></script>
+        <script src="/core.js"></script>
+        <script src="/lang.js"></script>
+        <script src="/lang/en_GB.js"></script>
+        <script src="/script.js"></script>
+    </head>
+    <body>
+        <nav>
+            <a href="/">
+                <img src="/media/emux.svg" alt="@Emux logo" class="mobile" />
+                <img src="/media/emuxText.svg" alt="@Emux logo" class="desktop" />
+            </a>
+            <div class="navButtons">
+                <a href="/">@Home</a>
+                <a href="/about.html">@About</a>
+                <a href="/products.html">@Products</a>
+            </div>
+            <div class="navMobile">
+                <a href="javascript:toggleMenu();"><icon aria-label="@Menu">menu</icon></a>
+            </div>
+            <div class="navMenu">
+                <a href="/">@Home</a>
+                <a href="/about.html">@About</a>
+                <a href="/products.html">@Products</a>
+            </div>
+        </nav>
+        <main>
+            <section class="headline">
+                <h1>@Press Corner</h1>
+                <p>@Resources you need to create a story on Emux</p>
+            </section>
+            <section>
+                <div class="split listing">
+                    <div class="iconic">
+                        <img src="/media/proxi.svg" alt="@The Proxi logo" />
+                    </div>
+                    <div>
+                        <h2 class="noMargin">@Proxi Press Kit ─ PDF</h2>
+                        <p>
+                            @Download our PDF to learn more about our tracking
+                            app, Proxi. This PDF contains information about the
+                            development of Proxi, as well as some brand
+                            guidelines. This PDF does not come with any assets ─
+                            if you require assets, download our ZIP file (below)
+                            where you can acquire logos, screenshots and more.
+                        </p>
+                        <button onclick="window.open('/media/press/proxiPressKit.pdf');">@View PDF</button>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="split listing">
+                    <div class="iconic">
+                        <img src="/media/proxi.svg" alt="@The Proxi logo" />
+                    </div>
+                    <div>
+                        <h2 class="noMargin">@Proxi Press Kit ─ ZIP</h2>
+                        <p>
+                            @Download and decompress our ZIP file, which
+                            contains assets such as logos, screenshots and more
+                            which you are free to use (on the condition that our
+                            assets are used solely for advertising Proxi). Also
+                            includes our Proxi Press Kit PDF which you can read
+                            to learn more about the development of Proxi.
+                        </p>
+                        <button onclick="window.open('/media/press/proxiPressKit.zip');">@Download ZIP</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer import="/templates/footer.html"></footer>
+    </body>
+</html>

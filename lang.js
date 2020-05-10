@@ -48,7 +48,7 @@ var lang = {
         if (localStorage.getItem("lang") != null) {
             return localStorage.getItem("lang");
         } else {
-            return navigator.language;
+            return navigator.language.replace(/-/g, "_");
         }
     },
  
@@ -63,9 +63,9 @@ var lang = {
  
     format: function(data, code, options = {}) {
         if (data instanceof Number) {
-            return data.toLocaleString(code, options);
+            return data.toLocaleString(code.replace(/_/g, "-"), options);
         } else if (data instanceof Date) {
-            return data.toLocaleDateString(code, options);
+            return data.toLocaleDateString(code.replace(/_/g, "-"), options);
         } else {
             return data;
         }
@@ -87,9 +87,9 @@ var lang = {
  
                     for (var argument in arguments) {
                         if (useLocaleFormats) {
-                            rule = rule.replace(new RegExp("\\{" + argument + "\\}", "g"), "`" + String(lang.format(arguments, lang.language)).replace(/`/g, "\\`") + "`");
+                            rule = rule.replace(new RegExp("\\{" + argument + "\\}", "g"), "`" + String(lang.format(arguments[argument], lang.language)).replace(/`/g, "\\`") + "`");
                         } else {
-                            rule = rule.replace(new RegExp("\\{" + argument + "\\}", "g"), "`" + String(arguments).replace(/`/g, "\\`") + "`");
+                            rule = rule.replace(new RegExp("\\{" + argument + "\\}", "g"), "`" + String(arguments[argument]).replace(/`/g, "\\`") + "`");
                         }
  
                         if (eval(rule)) {
@@ -181,10 +181,6 @@ if (core.getURLParameter("lang") != null) {
     } else {
         lang.language = navigator.language;
     }
-}
-  
-if ((lang.language == "en-AU" || lang.language == "en-US") && lang.locales[lang.language] == undefined) {
-    lang.language = "en-GB";
 }
  
 $("html, body").css("display", "none");
