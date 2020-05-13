@@ -9,7 +9,7 @@
 -->
 <html>
     <head>
-        <title>@Emux Technologies</title>
+        <title>@Sign in - Emux Technologies</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
         <meta name="description" content="We're Emux Technologies, a group who is making tech that drives our world forward.">
@@ -28,34 +28,27 @@
         <script src="/lang/en_GB.js"></script>
         <script src="/script.js"></script>
     </head>
-    <body>
-        <nav>
+    <body class="account" data-account="signedOut">
+        <div class="center">
             <a href="/">
-                <img src="/media/emux.svg" alt="@Emux logo" class="mobile" />
-                <img src="/media/emuxText.svg" alt="@Emux logo" class="desktop" />
+                <img src="/media/emuxText.png" class="logo" />
             </a>
-            <div class="navButtons">
-                <a href="/">@Home</a>
-                <a href="/about.html">@About</a>
-                <a href="/products.html">@Products</a>
-            </div>
-            <div class="navMobile">
-                <a href="javascript:toggleMenu();"><icon aria-label="@Menu">menu</icon></a>
-            </div>
-            <div class="navMenu">
-                <a href="/">@Home</a>
-                <a href="/about.html">@About</a>
-                <a href="/products.html">@Products</a>
-            </div>
-        </nav>
+        </div>
         <main>
-            <section class="headline">
-                <img src="/media/404.svg" alt="@Error 404" />
-                <h1>@Took the wrong turn?</h1>
-                <p>@We can get you back on track. Just visit our homepage where we've got plenty to show!</p>
-                <button onclick="window.location.href = '/index.html';" class="red">@Go home</button>
-            </section>
+            <h1>@Sign into Emux</h1>
+            <div class="split">
+                <input type="email" placeholder="@Email address" id="email">
+            </div>
+            <div class="split">
+                <input type="password" placeholder="@Password" id="password">
+            </div>
+            <div class="split">
+                <button onclick="window.location.href = '/';" class="light">@Cancel</button>
+                <button>@Sign in</button>
+            </div>
         </main>
-        <footer import="/templates/footer.html"></footer>
+        <div class="center">
+            <p>@Signing in is only available to Emux employees at this time</p>
+        </div>
     </body>
 </html>

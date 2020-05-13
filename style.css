@@ -37,6 +37,39 @@ html.show, html.show body {
     display: unset;
 }
 
+body.account {
+    display: block!important;
+    padding: 20px;
+    padding-top: 20vh;
+    background-color: var(--light);
+}
+
+body.account main {
+    width: 90vw;
+    max-width: 400px;
+    min-height: unset;
+    max-height: 60vh;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 10px;
+    background-color: var(--background);
+    color: var(--text);
+    text-align: center;
+    border-radius: 30px;
+    overflow: auto;
+}
+
+body.account main h1 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+body.account .logo {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
     font-family: inherit;
@@ -328,6 +361,7 @@ span.blue {
 button {
     margin-top: 4px;
     margin-bottom: 4px;
+    margin-left: 4px;
     margin-right: 4px;
     padding: 14px;
     padding-left: 24px;
@@ -378,6 +412,7 @@ input {
     width: 100%;
     margin-top: 4px;
     margin-bottom: 4px;
+    margin-left: 4px;
     margin-right: 4px;
     padding: 14px;
     padding-left: 24px;
@@ -450,14 +485,14 @@ icon {
     flex-wrap: wrap;
 }
 
-.split > div {
+.split > * {
     padding-left: 10px;
     padding-right: 10px;
     flex-grow: 1;
     flex-basis: 0;
 }
 
-.split > div.iconic {
+.split > *.iconic {
     flex-grow: 0;
     flex-basis: 100px;
     text-align: center;
