@@ -9,7 +9,7 @@
 -->
 <html>
     <head>
-        <title>@Terms of Service - Emux Technologies</title>
+        <title>@Sign in - Emux Technologies</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
         <meta name="description" content="We're Emux Technologies, a group who is making tech that drives our world forward.">
@@ -28,38 +28,23 @@
         <script src="/lang/en_GB.js"></script>
         <script src="/account/account.js"></script>
         <script src="/script.js"></script>
+        <script src="/account/signin.js"></script>
     </head>
-    <body>
-        <nav>
+    <body class="account" data-account="signedIn">
+        <div class="center">
             <a href="/">
-                <img src="/media/emux.svg" alt="@Emux logo" class="mobile" />
-                <img src="/media/emuxText.svg" alt="@Emux logo" class="desktop" />
+                <img src="/media/emuxText.png" class="logo" />
             </a>
-            <div class="navButtons">
-                <a href="/">@Home</a>
-                <a href="/about.html">@About</a>
-                <a href="/products.html">@Products</a>
-            </div>
-            <div class="navMobile">
-                <a href="javascript:toggleMenu();"><icon aria-label="@Menu">menu</icon></a>
-            </div>
-            <div class="navMenu">
-                <a href="/">@Home</a>
-                <a href="/about.html">@About</a>
-                <a href="/products.html">@Products</a>
-            </div>
-        </nav>
+        </div>
         <main>
-            <section class="headline">
-                <h1>Terms of Service</h1>
-            </section>
-            <section>
-                <p>Please choose a product to read its Terms of Service:</p>
-                <ul>
-                    <li><a href="proxiTerms.html">Proxi Terms of Service</a></li>
-                </ul>
-            </section>
+            <h1>@Currently signed in</h1>
+            <div class="split">
+                <button onclick="window.location.href = '/';" class="light">@Go home</button>
+                <button onclick="accountEmux.signOut();" class="red accountEmux_signOutButton">@Sign out</button>
+            </div>
         </main>
-        <footer import="/templates/footer.html"></footer>
+        <div class="center">
+            <p>@Signing in is only available to Emux employees at this time</p>
+        </div>
     </body>
 </html>

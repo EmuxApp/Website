@@ -378,6 +378,11 @@ button:hover {
     filter: brightness(1.15);
 }
 
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 button.light {
     background-color: var(--light);
     color: var(--lightText);
