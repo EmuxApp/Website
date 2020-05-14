@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+    Emux Website
+
+    Copyright (C) Emux Technologies. All Rights Reserved.
+
+    https://emux.app
+    Licenced by the Emux Open-Source Licence, which can be found at LICENCE.md.
+-->
+<html>
+    <head>
+        <title>@Blog - Emux Technologies</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <meta name="description" content="We're Emux Technologies, a group who is making tech that drives our world forward.">
+        <link rel="shortcut icon" href="/media/emux.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-storage.js"></script>
+        <script src="/lib/jquery.min.js"></script>
+        <script src="/core.js"></script>
+        <script src="/lang.js"></script>
+        <script src="/lang/en_GB.js"></script>
+        <script src="/account/account.js"></script>
+        <script src="/script.js"></script>
+        <script src="/newArticle.js"></script>
+    </head>
+    <body data-account="signedIn">
+        <nav>
+            <a href="/">
+                <img src="/media/emux.svg" alt="@Emux logo" class="mobile" />
+                <img src="/media/emuxText.svg" alt="@Emux logo" class="desktop" />
+            </a>
+            <div class="navButtons">
+                <a href="/">@Home</a>
+                <a href="/about.html">@About</a>
+                <a href="/products.html">@Products</a>
+            </div>
+            <div class="navMobile">
+                <a href="javascript:toggleMenu();"><icon aria-label="@Menu">menu</icon></a>
+            </div>
+            <div class="navMenu">
+                <a href="/">@Home</a>
+                <a href="/about.html">@About</a>
+                <a href="/products.html">@Products</a>
+            </div>
+        </nav>
+        <main>
+            <section class="split">
+                <input placeholder="@Article title" id="title" />
+            </section>
+            <section class="split">
+                <input placeholder="@Thumbnail URL" id="thumbnailUrl" />
+                <input placeholder="@Thumbnail alt description" id="thumbnailAlt" />
+            </section>
+            <section contenteditable="true" class="articleContents bigMarginTopBottom">
+                <p>Write something here...</p>
+            </section>
+            <section class="end">
+                <button onclick="postArticle();" id="postArticleButton">@Post</button>
+                <p id="error"></p>
+            </section>
+        </main>
+        <footer import="/templates/footer.html"></footer>
+    </body>
+</html>

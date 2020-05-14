@@ -18,7 +18,7 @@ var firebaseEmuxConfig = {
     measurementId: "G-2820K1ZL6P"
 };
 
-var firebaseEmux = firebase.initializeApp(firebaseEmuxConfig, "emux");
+var firebaseEmux = firebase.initializeApp(firebaseEmuxConfig);
 firebaseEmux.analytics();
 
 function toggleMenu() {
@@ -28,3 +28,39 @@ function toggleMenu() {
         $(".navMenu").fadeIn(350);
     }
 }
+
+$(function() {
+    firebaseEmux.database().ref("blog").orderByChild("date").on("value", function(snapshot) {
+        $(".blogArticles").html("");
+
+        snapshot.forEach(function(childSnapshot) {
+            $(".blogArticles").prepend(
+                $("<div class='split listing'>").append([
+                    $("<div class='preview'>").append([
+                        $("<img>")
+                            .attr("src", childSnapshot.val().thumbnailSrc)
+                            .attr("alt", childSnapshot.val().thumbnailAlt)
+                        ,
+                        $("<small class='articleDate'>").text(lang.format(new Date(childSnapshot.val().date), lang.language, {
+                            weekday: "long",
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric"
+                        }))
+                    ]),
+                    $("<div>").append([
+                        $("<h2 class='noMargin'>").text(childSnapshot.val().title),
+                        $("<p class='articlePreview'>").html(childSnapshot.val().contents),
+                        $("<div class='end'>").append(
+                            $("<button>")
+                                .text(_("Read more"))
+                                .on("click", function() {
+                                    window.location.href = "/article.html?id=" + childSnapshot.key;
+                                })
+                        )
+                    ])
+                ])
+            );
+        });
+    });
+});

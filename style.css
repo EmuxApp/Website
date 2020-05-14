@@ -482,6 +482,11 @@ icon {
     margin: 0;
 }
 
+.bigMarginTopBottom {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .split {
     display: flex;
     margin-left: -10px;
@@ -500,6 +505,19 @@ icon {
     flex-grow: 0;
     flex-basis: 100px;
     text-align: center;
+}
+
+.split > *.preview {
+    flex-grow: 0;
+    flex-basis: 200px;
+    text-align: center;
+}
+
+.split > *.preview img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .split.listing {
@@ -540,6 +558,32 @@ icon {
     margin-bottom: 10px;
 }
 
+.articleDate {
+    display: block;
+    color: var(--dark);
+}
+
+.articlePreview {
+    max-height: 20vh;
+    overflow: hidden;
+}
+
+.articleTitle {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.articleThumbnail {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.articleContents {
+    font-size: 20px;
+}
+
 @media (max-width: 800px) {
     nav .navButtons {
         display: none;
@@ -571,19 +615,28 @@ icon {
         display: unset;
     }
 
-    .split > div {
+    .split > * {
         flex-basis: 50%;
     }
 
-    .split > div.iconic {
+    .split > *.iconic {
         padding-left: 30vw;
         padding-right: 30vw;
         flex-basis: 100%;
-    }    
+    }
+
+    .split > *.preview {
+        flex-basis: 100%;
+    }
+
+    .split > *.preview img {
+        width: 100%;
+        height: 150px;
+    }
 }
 
 @media (max-width: 400px) {
-    .split > div {
+    .split > * {
         flex-basis: 100%;
     }
 }

@@ -11,5 +11,7 @@ lang.load("en_GB", {
     name: "English (United Kingdom)",
     nameShort: "English",
     textDirection: "ltr",
-    strings: {}
+    strings: {
+        "By {0} ({1})": "By {0} ({1})"
+    }
 });

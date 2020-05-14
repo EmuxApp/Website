@@ -7,6 +7,12 @@
     Licenced by the Emux Closed-Source Licence, which can be found at LICENCE.md.
 */
 
+var currentUser = {
+    uid: null,
+    fullName: null,
+    jobTitle: null
+};
+
 var accountEmux = {
     signOut: function() {
         $(".accountEmux_signOutButton").prop("disabled", true);
@@ -21,6 +27,13 @@ $(function() {
             if ($("body").attr("data-account") == "signedOut") {
                 window.location.replace(core.getURLParameter("go") || "/account/index.html");
             }
+
+            currentUser.uid = user.uid;
+
+            firebase.database().ref("users/" + currentUser.uid).on("value", function(snapshot) {
+                currentUser.fullName = snapshot.val().fullName;
+                currentUser.jobTitle = snapshot.val().jobTitle;
+            });
         } else {
             if ($("body").attr("data-account") == "signedIn") {
                 window.location.replace(core.getURLParameter("go") || "/account/signin.html");
