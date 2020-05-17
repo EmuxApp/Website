@@ -12,20 +12,24 @@ $(function() {
         window.location.replace("/blog.html");
     } else {
         firebaseEmux.database().ref("blog/" + core.getURLParameter("id")).once("value", function(snapshot) {
-            $(".articleTitle").text(snapshot.val().title);
-            $(".articleDate").text(lang.format(new Date(snapshot.val().date), lang.language, {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric"
-            }) + " · " + _("By {0} ({1})", [snapshot.val().authorName, _(snapshot.val().authorJobTitle)]));
+            if (snapshot.val() != null) {
+                $(".articleTitle").text(snapshot.val().title);
+                $(".articleDate").text(lang.format(new Date(snapshot.val().date), lang.language, {
+                    weekday: "long",
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }) + " · " + _("By {0} ({1})", [snapshot.val().authorName, _(snapshot.val().authorJobTitle)]));
 
-            $(".articleThumbnail")
-                .attr("src", snapshot.val().thumbnailSrc)
-                .attr("alt", snapshot.val().thumbnailAlt)
-            ;
+                $(".articleThumbnail")
+                    .attr("src", snapshot.val().thumbnailSrc)
+                    .attr("alt", snapshot.val().thumbnailAlt)
+                ;
 
-            $(".articleContents").html(snapshot.val().contents);
+                $(".articleContents").html(snapshot.val().contents);
+            } else {
+                window.location.replace("/404.html");
+            }
         });
     }
 });
