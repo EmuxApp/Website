@@ -55,41 +55,21 @@
                 <h1>@Spread the Word</h1>
             </section>
             <section>
-                <p>
-                    @Looking to support the Proxi app? Post a positive message
-                    about Proxi to your favourite social media platform and get
-                    5 points for every like (or equivalent) you gain on that
-                    post. Include a link to <a href="/">emux.app</a> to help
-                    others find Proxi more easily!
+                <p class="center">
+                    @Thanks for submitting your post! Our team will take a look
+                    soon and give you the correct amount of points.
                 </p>
-                <p>
-                    @When your post is sufficiently popular, fill in our quick
-                    form below so that we can review your post and verify that
-                    you have got loads of likes. Please include evidence on your
-                    post (for example by including your Proxi username) so that
-                    we can quickly give you your hard-earned points!
+                <p class="center">
+                    @If you think you've made a mistake, feel free to submit the
+                    form again with the correct information and we'll take a
+                    look at your most recent submission. Please don't re-send
+                    the same information again and again as it'll make it harder
+                    for us to verify you and you could risk not gaining your
+                    points.
                 </p>
-            </section>
-            <section>
-                <h2>@Submit your post</h2>
-                <input placeholder="@Your Proxi username" id="proxiShare_username">
-                <input placeholder="@Link to your social media post" id="proxiShare_postLink">
-                <button onclick="submitProxiShare();" class="green" id="proxiShare_button">@Submit</button>
-                <p id="proxiShare_error"></p>
-                <p>
-                    @Need help? <a href="mailto:hi@emux.app" target="_blank">Send us a quick email!</a>
-                </p>
-                <small>
-                    @By submitting information in the above form, you
-                    agree that Emux Technologies may, at any time, deny the
-                    supplying of points to your Proxi account under this offer.
-                    If you have already sent a post for us to verify, please do
-                    not re-send it unless you have made an error regarding the
-                    information that you have provided. Abuse of this form could
-                    lead to the termination of your Proxi account. We trust that
-                    the information that you have provided is accurate, in which
-                    case do not impersonate others through this form.
-                </small>
+                <div class="center">
+                    <button onclick="window.location.href = '/proxiShare.html';">@Back to form</button>
+                </div>
             </section>
         </main>
         <footer import="/templates/footer.html"></footer>
