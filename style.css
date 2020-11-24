@@ -179,6 +179,10 @@ main {
     padding-right: 10vw;
 }
 
+main.noPaddingBottom {
+    padding-bottom: 0;
+}
+
 iframe.main {
     width: 100%;
     min-height: calc(100vh - 80px);
